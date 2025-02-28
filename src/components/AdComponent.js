@@ -1,26 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const AdComponent = () => {
-  const adRef = useRef(null);
-
   useEffect(() => {
-    try {
-      if (window.adsbygoogle && adRef.current) {
-        // Check if the ad slot has been initialized
-        if (!adRef.current.hasAttribute("data-adsbygoogle-status")) {
-          window.adsbygoogle.push({});
-        }
+    if (typeof window !== "undefined" && window.adsbygoogle) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error:", e);
       }
-    } catch (e) {
-      console.error("AdSense error:", e);
     }
   }, []);
 
   return (
     <ins
-      ref={adRef}
       className="adsbygoogle"
-      style={{ display: "block", minWidth: "300px", minHeight: "250px" }} // Ensure it's visible
+      style={{ display: "block" }}
       data-ad-client="ca-pub-7403056135149608"
       data-ad-slot="4575182597"
       data-ad-format="auto"
