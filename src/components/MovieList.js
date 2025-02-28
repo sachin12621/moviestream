@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import AdComponent from "./AdComponent";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -17,34 +18,18 @@ const MovieList = () => {
       .catch((error) => console.error("Error fetching movies", error));
   }, []);
 
-  useEffect(() => {
-    try {
-        if (window.adsbygoogle) {
-          window.adsbygoogle.push({});
-        }
-      } catch (e) {
-        console.error("AdSense error:", e);
-      }
-    }, []);
-
   return (
-    <div className="movie-list">
+    <div className="container">
+      <AdComponent />
       <h2>Latest Movies</h2>
-
-      {/* Google AdSense Ad */}
-      <div className="adsense">
-        <ins className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client="ca-pub-7403056135149608"
-            data-ad-slot="4575182597"
-            data-ad-format="auto"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-
-      {/* Movies List */}
+      
       {movies.length > 0 ? (
-        <div className="movie-grid">
-          {movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+        <div className="row">
+            {movies.map((movie) => (
+            <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                <MovieCard movie={movie} />
+            </div>
+            ))}
         </div>
       ) : (
         <p>Loading movies...</p>
