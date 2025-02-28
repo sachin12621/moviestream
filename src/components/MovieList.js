@@ -18,11 +18,14 @@ const MovieList = () => {
   }, []);
 
   useEffect(() => {
-    if (window.adsbygoogle) {
-      window.adsbygoogle = window.adsbygoogle || [];
-      window.adsbygoogle.push({});
-    }
-  }, [movies]);
+    try {
+        if (window.adsbygoogle) {
+          window.adsbygoogle.push({});
+        }
+      } catch (e) {
+        console.error("AdSense error:", e);
+      }
+    }, []);
 
   return (
     <div className="movie-list">
