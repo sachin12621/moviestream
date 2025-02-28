@@ -22,7 +22,7 @@ const AdComponent = () => {
       className="adsbygoogle"
       style={{ display: "block", minWidth: "300px", minHeight: "250px" }} // Ensure it's visible
       data-ad-client="ca-pub-7403056135149608"
-      data-ad-slot="1234567890"
+      data-ad-slot="4575182597"
       data-ad-format="auto"
       data-full-width-responsive="true"
     ></ins>
