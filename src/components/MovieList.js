@@ -32,8 +32,8 @@ const MovieList = () => {
       <div className="adsense">
         <ins className="adsbygoogle"
             style={{ display: "block" }}
-            data-ad-client="YOUR_ADSENSE_CLIENT_ID"
-            data-ad-slot="YOUR_AD_SLOT"
+            data-ad-client="ca-pub-7403056135149608"
+            data-ad-slot="4575182597"
             data-ad-format="auto"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
